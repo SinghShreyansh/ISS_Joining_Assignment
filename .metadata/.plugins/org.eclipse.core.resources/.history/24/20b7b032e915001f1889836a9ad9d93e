@@ -45,7 +45,7 @@ public class FileReadWriteExample {
          
         // Using NIO File
         String filePath = "input1.txt";
-        List<String> lines = Arrays.asList("Hello, World!", "This is a demo test to write.");
+        List<String> lines = Arrays.asList("Hello, World!", "This is a test.");
         
         try {
         	

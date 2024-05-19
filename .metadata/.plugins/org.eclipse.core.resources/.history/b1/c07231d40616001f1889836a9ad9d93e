@@ -1,0 +1,53 @@
+package com.iss;
+
+// Java uses try, catch, finally, and throw to handle exceptions.
+
+// try - The try block contains code that might throw an exception.
+// catch - The catch block follows the try block. It catches exceptions thrown by the try block. You can have multiple catch blocks to handle different types of exceptions.
+// finally - The finally block follows the try or catch blocks. It always executes, regardless of whether an exception was thrown or caught. It is used to execute important code such as closing resources.
+// throw: Used to explicitly throw an exception from a method or any block of code.
+// throws: Used in method signatures to declare that a method can throw specified exceptions, informing the method's caller to handle or declare these exceptions.
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+// below is example to handle exceptions
+
+public class ExceptionsHandling {
+	
+	public static void main(String[] args) {
+        try {
+            readFile("example.txt");
+        } catch (IOException e) {
+            System.out.println("Exception caught in main: " + e.getMessage()); // getMessage - Returns a detailed message about the exception
+        } finally {
+            System.out.println("Main method's finally block.");
+        }
+    }
+
+    public static void readFile(String fileName) throws IOException {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("IOException occurred: " + e.getMessage());
+            throw e; // Rethrow the exception
+        } finally {
+        	// Ensures that the BufferedReader is closed, even if an exception occurs.
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    System.out.println("Error closing the reader: " + e.getMessage());
+                }
+            }
+            System.out.println("readFile method's finally block.");
+        }
+    }
+
+}
