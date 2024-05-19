@@ -1,0 +1,39 @@
+package com.iss;
+
+public class PrimitiveDataType {
+
+	public static void main(String[] args) {
+        // byte type
+        byte byteValue = 100;
+        System.out.println("byteValue: " + byteValue);
+
+        // short type
+        short shortValue = 10000;
+        System.out.println("shortValue: " + shortValue);
+
+        // int type
+        int intValue = 100000;
+        System.out.println("intValue: " + intValue);
+
+        // long type
+        long longValue = 100000L;
+        System.out.println("longValue: " + longValue);
+
+        // float type
+        float floatValue = 10.5f;
+        System.out.println("floatValue: " + floatValue);
+
+        // double type
+        double doubleValue = 10.5d;
+        System.out.println("doubleValue: " + doubleValue);
+
+        // boolean type
+        boolean booleanValue = true;
+        System.out.println("booleanValue: " + booleanValue);
+
+        // char type
+        char charValue = 'A';
+        System.out.println("charValue: " + charValue);
+    }
+	
+}
