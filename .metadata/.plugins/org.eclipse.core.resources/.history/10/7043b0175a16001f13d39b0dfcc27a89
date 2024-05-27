@@ -1,0 +1,70 @@
+package com.iss;
+
+//Comparable: Implemented within the class and defines the natural ordering of objects. Use the compareTo method.
+//Comparator: Implemented as separate classes or anonymous classes and defines custom orderings. Use the compare method.
+//You can create multiple comparators for different sort orders.
+
+import java.util.*;
+import com.iss.Student;
+
+public class ComparableVsComparator {
+	
+	public static void main(String[] args) {
+		
+		// 1. Sorting Primitives (Using Wrapper Class)
+//		you cannot directly sort primitive types (int, char, etc.) using Collections.sort(), but you can use their corresponding wrapper classes (Integer, Character, etc.).
+		
+		List<Integer> intList = new ArrayList<>();
+        intList.add(5);
+        intList.add(2);
+        intList.add(9);
+        intList.add(1);
+        intList.add(7);
+
+        System.out.println("Before sorting: " + intList);
+        Collections.sort(intList);
+        System.out.println("After sorting: " + intList);
+        
+        
+        // 2. Sorting Custom Objects Using 'Comparator'
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(3, "Shreyansh"));
+        students.add(new Student(1, "Shreya"));
+        students.add(new Student(2, "Shiv"));
+
+        System.out.println("Before sorting by ID: " + students);
+        Collections.sort(students, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return Integer.compare(s1.getId(), s2.getId());
+            }
+        });
+        System.out.println("After sorting by ID: " + students);
+
+        System.out.println("Before sorting by Name: " + students);
+        Collections.sort(students, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return s1.getName().compareTo(s2.getName());
+            }
+        });
+        System.out.println("After sorting by Name: " + students);
+        
+        
+        // 3. Sorting Custom Objects Using 'Comparable'
+        // Implemented in Student.java
+        // Here you can use Collections.sort()
+        
+        List<Student> students1 = new ArrayList<>();
+        students1.add(new Student(3, "Shreyansh"));
+        students1.add(new Student(1, "Shreya"));
+        students1.add(new Student(2, "Shiv"));
+        
+        System.out.println("Before sorting: " + students);
+        Collections.sort(students1);
+        System.out.println("After sorting: " + students);
+        
+        
+	}
+
+}

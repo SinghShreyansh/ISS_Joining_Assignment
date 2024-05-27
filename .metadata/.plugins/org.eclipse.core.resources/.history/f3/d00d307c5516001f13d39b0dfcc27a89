@@ -1,0 +1,92 @@
+package com.iss;
+
+// Map : A Map is an object that maps keys to values. A map cannot contain duplicate keys.
+
+// 1. HashMap
+//HashMap is like HashSet, it doesn’t maintain insertion order and doesn’t sort the elements in any order.
+//It is non-synchronized. However you can make it synchronized
+//It allows null keys and values. However only one null key is allowed. Multiple null values are allowed.
+ 
+// 2. TreeMap
+//It stores its elements in a red-black tree.
+//The elements of TreeMap are sorted in ascending order.
+
+// 3. LinkedHashMap
+//It maintains insertion order. 
+
+
+import java.util.*;
+import com.iss.Student;
+
+public class CollectionMap {
+
+	// 1. HashMap
+	HashMap<Integer, String> hmap = new HashMap<>();
+
+    //key and value pairs
+    hmap.put(101, "Shreya");
+    hmap.put(105, "Singh");
+    hmap.put(111, "Shreyansh");
+    hmap.put(120, "Shiv");
+
+    //print HashMap elements
+    Set set = hmap.entrySet();
+    Iterator iterator = set.iterator();
+    while(iterator.hasNext()) {
+      Map.Entry m = (Map.Entry)iterator.next();
+      System.out.print("key is: "+ m.getKey() + " & Value is: ");
+      System.out.println(m.getValue());
+    }
+    
+    
+    // 2. TreeMap
+    TreeMap<Integer, String> hmap = new TreeMap<>();
+
+    //key and value pairs
+    hmap.put(101, "Shreya");
+    hmap.put(105, "Singh");
+    hmap.put(111, "Shreyansh");
+    hmap.put(120, "Shiv");
+
+    //print HashMap elements
+    Set set = hmap.entrySet();
+    Iterator iterator = set.iterator();
+    while(iterator.hasNext()) {
+      Map.Entry m = (Map.Entry)iterator.next();
+      System.out.print("key is: "+ m.getKey() + " & Value is: ");
+      System.out.println(m.getValue());
+    }
+    
+    
+    // 3. LinkedHashMap
+    LinkedHashMap<Integer, String> hmap = new LinkedHashMap<>();
+
+    //key and value pairs
+    hmap.put(100, "Chaitanya");
+    hmap.put(120, "Paul");
+    hmap.put(105, "Derick");
+    hmap.put(111, "Logan");
+
+    //print LinkedHashMap elements
+    Set set = hmap.entrySet();
+    Iterator iterator = set.iterator();
+    while(iterator.hasNext()) {
+      Map.Entry m = (Map.Entry)iterator.next();
+      System.out.print("key is: "+ m.getKey() + " & Value is: ");
+      System.out.println(m.getValue());
+    }
+    
+    
+    // 4. Custom Student Object
+    Map<Student, Student> studentMap = new HashMap<>();
+    studentMap.put(new Student(1, "Alice"), new Student(101, "Alicia"));
+    studentMap.put(new Student(2, "Bob"), new Student(102, "Bobby"));
+    studentMap.put(new Student(3, "Charlie"), new Student(103, "Charles"));
+
+    // Iterating over the map
+    for (Map.Entry<Student, Student> entry : studentMap.entrySet()) {
+        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+    }
+    
+    
+}
