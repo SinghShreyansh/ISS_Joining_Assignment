@@ -1,4 +1,0 @@
-All exception classes are subtypes of the java.lang.Exception class. 
-The exception class is a subclass of the Throwable class. 
-Other than the exception class there is another subclass called Error which is derived from the Throwable class.
-
