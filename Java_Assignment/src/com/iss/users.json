@@ -1,0 +1,14 @@
+[
+  {
+    "user_id": 1,
+    "username": "john_doe",
+    "password": "password123",
+    "email": "john@example.com"
+  },
+  {
+    "user_id": 2,
+    "username": "jane_smith",
+    "password": "securepassword",
+    "email": "jane@example.com"
+  }
+]
